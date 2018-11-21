@@ -5,4 +5,3 @@ var createPassword = function() {
   return passArray.map(function(_, index) { 
     return index % 4 == 3 ? '-' : passAt.charAt(Math.random() * passAt.length)
   }).join('')
-}
