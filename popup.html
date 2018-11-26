@@ -1,51 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Random Password Generator</title>
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8">
+<title>Генератор паролей и логинов на JavaScript</title><link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style></style>
+<style><!--.pw{padding:1em 0;text-align:center;}
+.p{position:relative;display:inline-block;padding:1em .3em .6em;margin:4px 2px;min-width:220px;text-align:center;border:solid 1px#eee;border-radius:2px;}
+.z1,.zz{padding:.5em;width:180px;outline:0;font-size:18px;border:0;border-radius:25px;margin:25px auto 5px;text-align:center;display:block;cursor:pointer}
+.z1:hover{background:#ffcd33;color:#000;text-decoration:none!important;}
+.z1:active,.zz:active{color:#fff;-webkit-box-shadow:inset 0 2px 0 rgba(166,134,35,.25);-moz-box-shadow:inset 0 2px 0 rgba(166,134,35,.25);box-shadow:inset 0 2px 0 rgba(166,134,35,.25);}
+.z1{background:#ffdd2e;color:#333;-webkit-box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 1px 0 0 #b59d21;-moz-box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 1px 0 0 #b59d21;box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 1px 0 0 #b59d21;}
+.zz{background:#68b68d;color:#eee;-webkit-box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 1px 0 0 #287233;-moz-box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 1px 0 0 #287233;box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 1px 0 0 #287233;}
+.zz:hover{background:#419569;color:#fff;text-decoration:none!important;}
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+#fc0{-webkit-appearance:none;width:100%;margin:3em 0;outline:0;cursor:pointer;}
+#fc0:focus{outline:0;}
+#fc0::-webkit-slider-runnable-track{width:100%;height:7px;background:-webkit-linear-gradient(left,#f00 0%,#ff0 50%,#0f0 100%);border-radius:3px;border:1px solid rgba(0,0,153, 0.1);}
+#fc0::-webkit-slider-thumb{box-shadow:0 0 5px rgba(0,0,62,.5), 0 0 0 rgba(0,0,88, .5);border:1px solid rgba(0,0,0,.5);height:44px;width:44px;border-radius:22px;background:#ffdd2e;-webkit-appearance:none;margin-top:-19px;}
+#fc0:focus::-webkit-slider-runnable-track{background:-webkit-linear-gradient(left,#f00 0%,#ff0 50%,#0f0 100%);}
+#fc0::-moz-range-track{width:100%;height:7px;background:-moz-linear-gradient(left,#f00 0%,#ff0 50%,#0f0 100%); border-radius:3px;border:1px solid rgba(0,0,153, 0.1);}
+#fc0::-moz-range-thumb{box-shadow:0 0 5px rgba(0,0,62,.5), 0 0 0 rgba(0,0,88, .5);border:1px solid rgba(0,0,0,.5);height:44px;width:44px;border-radius:22px; background:#ffdd2e;}
+#fc0::-ms-track{width:100%;height:7px;}
+#fc0::-ms-fill-lower,#fc0::-ms-fill-upper{border:1px solid rgba(0,0,153,.1);border-radius:6px;}
+#fc0::-ms-thumb{box-shadow:0 0 5px rgba(0,0,62,.5),0 0 0 rgba(0,0,88,.5);border:1px solid rgba(0,0,0,.5);height:44px;width:44px;border-radius:22px;background:#ffdd2e;height:7px;}
+#fc1 {display:block;width:180px;outline:0;height:34px;padding:6px 12px;margin:0 auto 1em;font-size:1em;text-align:center;line-height:1.44;color:#555;background-color:#fff;border:1px solid#ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s; -o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s; transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;}
+#fc1:focus {border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233, .6); box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+.ds{margin:4px 0;font-size:.8em;font-style:italic;color:#aaa;}
+.ar{font-style:italic;font-family:'Arimo italic','Times New Roman',Times,serif;text-decoration:none!important;color:#4094c3;}
+.ar:hover{color:red;text-decoration:underline!important;}
+.tx5 .ds{color:#ff9;font-style:normal;font-size:.9em;}-->
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0,user-scalable=yes"><link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="google-site-verification" content="">
+<script></script></head><body>
+<div id="fn"><div id="fnl"></div><div id="fnr"></div>
+<div id="sd">
+<div id="mn"> <div class="pm"><a href="/development/" class="ov">Разработка</a></div> <div class="pm"><a href="/coins/" class="ov">Монеты</a></div> <div class="pm"><a href="/arbitration/" class="ov">Арбитраж</a></div> <div class="pm"><a href="/notepad/" class="ov">Блокнот</a></div></div>
+<div class="tx0"><h1>Генератор паролей и логинов на JavaScript</h1></div><div class="txi" onclick="pdp(2)" itemscope itemtype="http://schema.org/BreadcrumbList"><span class="xk"><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+<meta itemprop="position" content="1"/></span> / <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="/development/"><span itemprop="name">Разработка</span></a>
+<meta itemprop="position" content="2"/></span> / <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="/javascript/"><span itemprop="name">JavaScript</span></a>
+<meta itemprop="position" content="3"/></span> / <span class="thp">Генератор паролей и логинов на JavaScript</span></span></div>
 
+<div class="txt">Для того что бы быстро создавать пароли необходимой длины и сложности (пароли для WiFi, e-mail, MySQL, SSH, FTP и т.д.) Генерируемые пароли практически не запоминаются, зато взломать их перебором за реальный срок невозможно (при длине от 12 символов и составленные из всех наборов символов).<div class="tx44">Для максимальной надёжности используйте пароль состоящий из символов разного регистра, с цифрами и знаками препинания.</div>
+<h2>Готовые варианты</h2><div class="pw">
+<div class="p"><b id="pr0"></b><div class="z1" onclick="pg(0)">строчные</div></div>
+<div class="p"><b id="pr1"></b><div class="z1" onclick="pg(1)">ПРОПИСНЫЕ</div></div>
+<div class="p"><b id="pr2"></b><div class="z1" onclick="pg(2)">Оба регистра</div></div>
+<div class="p"><b id="pr3"></b><div class="z1" onclick="pg(3)">Цифры</div></div>
+<div class="p"><b id="pr4"></b><div class="z1" onclick="pg(4)">Буквы и цифры</div></div>
+<div class="p"><b id="pr5"></b><div class="z1" onclick="pg(5)">Символы</div></div>
+<div class="p"><b id="pr6"></b><div class="zz" onclick="pg(6)">ВСЁ</div></div>
+</div>
+<h2>Создание своего пароля</h2><div class="pw">
+<div class="p"><b id="qlt"></b><div class="ds">проверить более точно -<br><a href="/notepad/quality-assessment-password" class="ar" target="_blank">Оценка качества и надежности пароля</a></div></div>
+<input type="range" name="ri" id="fc0" value="15" min="3" max="28" onchange="ui(this.value);">
+<div class="p">
+<input type="number" name="fc0" id="fc1" value="15" min="3" max="28" onblur="iu(this.value);" onchange="iu(this.value);"> 
+<input type="checkbox" id="pvt" name="pvt" value="pvt">Повтор символов
+<input type="checkbox" id="lat" name="lat" value="lat" checked>Латиница
+<input type="checkbox" id="cur" name="cur" value="cur">Кирилица
+<div class="z1" onclick="re()">Обновить всё</div><br>
+<div class="tx5"><div class="ds"><i>Повтор символов</i> - если допускается повторение символов в пароле. <br>При одновременном выборе <i>латиницы</i> и <i>кириллицы</i> пароли могут <br>содержат внешне похожие символы.</div></div>
+</div></div>
+ Пароли создаются в реальном времени на вашем компьютере, поэтому исключена возможность перехвата пароля по сети. Разные посетители сайта видит разные пароли. Если вы зайдете на сайт второй раз, пароли будут другими. Вы можете выбрать пункт меню браузера "Файл|Сохранить как...", чтобы пользоваться генератором паролей в оффлайне. 
 
-</head>
-<body>
+!Выбирайте пароль посложнее, состоящий из символов разного регистра, с цифрами и [для абсолютной надёжности] знаками препинания.
+! Не используйте пароль, связанный с теми данными, которые могут быть о вас известны, например, ваше имя или дату рождения.
+! Пароли, которые вы видите на экране создаются в реальном времени на вашем компьютере, поэтому исключена возможность перехвата пароля по сети. Разные посетители сайта видит разные пароли. Если вы зайдете на сайт второй раз, пароли будут другими.
+! Вы можете выбрать пункт меню браузера "Файл|Сохранить как...", чтобы пользоваться генератором паролей в оффлайне.
+! Генератор паролей полностью прозрачен: скачайте файл passwd.js, чтобы увидеть, как создается пароль, и убедиться в абсолютной надежности.
 
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Random Password Generator</a>
-    </nav>
+чтобы быстро создавать пароли определенной длины и сложности. 
+Применений этому масса. Например пароли для доступа в интернет, создаваемые провайдером и пароли вебмастера (MySQL, SSH, FTP, Админка и пр. ) 
+Генерируемые пароли обычно не предназначены для запоминания, зато взломать из перебором практически невозможно.
+Расширение «Генератор пароля» для Хрома
+Желание попробовать сделать расширение для Гугл Хрома появилось у меня уже давно, но руки никак не доходили сесть и изучить, что да как. Вчера высвободил время и посвятил весь день изучению этого вопроса. Как ни странно, в рунете достаточно мало описано про создание таких вещей, обычно попадаются сборники, типа «25 лучших расширений и приложений». Дальше третьей страницы в поиске не листал. Но тем не менее, было и что почитать. Особо отмечу этот блог, который дал мне базовое представление о разработке; дальше пришлось изучать только документацию на английском языке.
+Решил начать с самого простого и достаточно необходимого мне в работе инструмента — генератора пароля. На самом деле таких генераторов в интернет-магазине Хрома много, но мне они не нравятся. Я люблю, когда всё выглядит красиво и просто; люблю, когда каждый элемент стоит на своём месте; люблю, когда всё удобно и понятно. Поэтому решил сделать самый приятный в использовании генератор пароля.
+Но чтобы его таковым сделать нужно посмотреть как выглядят и работают другие расширения. Вот большинство из них:
+Как видите бывают всякие: и сложные, и непонятные, и кривые, с кучей настроек и полей. Но зачем всё это? Если человеку нужен пароль, то нужно просто дать ему его. Не нужны никакие настройки, просто сгенерировал — скопировал — вставил. Всё!
+После некоторого изучения, дум и перделок я сделал самый удобный, на мой взгляд, генератор пароля:
+Можно установить и пощупать. Пожелания и благодарности принимаются как на странице расширения, так и здесь в комментах.
+P. S. Так как это был мой первый опыт разработки подобных расширений, приходилось постоянно обновлять архив приложения. В итоге версия доросла до 1.1.2.
+Генератор кодов является частью дополнительной функции безопасности, называемой "Подтверждения входа". При включенной функции "Подтверждения входа" вам придется вводить уникальный код безопасности каждый раз, когда вы пробуете войти в свой аккаунт Facebook с нового компьютера или мобильного телефона. Таким образом, никто не сможет войти в ваш аккаунт без кода и пароля. Подробнее о функции подтверждения входа.
+Генератор кодов представляет собой приложение Facebook и выдает новый код каждые 30 секунд, даже если вы не подключены к Интернету. Вы будете использовать этот код в дополнение к паролю для входа на Facebook. Генератор кодов можно также использовать, если вам необходимо сбросить пароль.
+Чтобы получить код для Android:
+В приложении Facebook коснитесь .
+Прокрутите экран вниз и коснитесь Генератор кодов.
+Используйте код для входа на Facebook.
+Чтобы получить код для iPhone или iPad:
+Из приложения Facebook коснитесь Еще на вашем iPhone или iPad.
+Прокрутите экран вниз и коснитесь Генератор кодов.
+Используйте код для входа на Facebook.
 
-    <div class="container">
+[ЦЕЛЬ] Генератор паролей онлайн ? Любой длины и любой сложности!
+Перед Вами вторая часть 7 выпуска, в которой я расскажу и покажу в видео обзоре сервис или генератор случайных паролей, который поможет Вам за несколько секунд создать себе любое количество паролей различной сложности.
+Думаю, что не для кого не секрет, что вся наша безопасность доступа к любимым ресурсам: сайтам, аккаунтам в соц. сетях, форумам, кабинетам и пр. держится на имени пользователя (логине) и пароле.
+Логин или имя пользователя каждый подбирает себе сам, как правило, с этим проблем не возникает.
+А вот с выбором пароля приходится подумать. Советую подойти к этому более ответственно, на пароле держится основная защита наших личных данных.
+При выборе пароля постарайтесь использовать не только буквы или цифры, а их сочетание. Еще лучше, если в пароле будут присутствовать и специальные символы вроде @, #, % – это существенно повышает сложность задачи для хакера.
+Конечно, запомнить такой пароль гораздо тяжелее, но зато он куда более надежнее, чем простой, который состоит только из букв или цифр.
+Идеальный вариант для пароля – это два слова, сложенные в одно, но каждое напечатано на другой раскладке, ну, и плюс пара цифр.
+Сейчас покажу, как это может выглядеть. Например, берете два слова – gold и дом, первое так и пишите, а другое – русскими буквами на английской раскладке.
+В итоге у Вас получится – goldljv, добавим сюда несколько цифр – 119, например. И у Вас получится 119goldljv – сложный пароль для подбора, но нисколько – для запоминания.
+Я специально поменяла местами цифры с буквами, чтобы пароль обрел логический смысл – 69 золотой дом или золотых домов (как Вам будет удобнее запомнить, выбирайте сами).
+Вот так. Теперь, чтобы не забыть свой пароль, Вам остается помнить это логическое словосочетание.
+А данный сервис поможет Вам сгенерировать сложные не логичные пароли для своих проектов, а вернее для их защиты.
+Нажмите на видео, чтобы посмотреть:
+Ссылка на сервис: http://goo.gl/ExAxIV
+Ссылка сокращена для отслеживания статистики переходов для меня лично :) Скопируйте и вставьте в поисковую строку браузера.
+Why do I need a password generator
+http://lifehacker.com/5937303/your-clever-password-tricks-arent-protecting-you-from-todays-hackers
+http://www.cnet.com/how-to/the-guide-to-password-security-and-why-you-should-care/
+http://preshing.com/20110811/xkcd-password-generator/
+http://www.newpasswordgenerator.com/
+http://onlinepasswordgenerator.com/why-do-i-need-a-long-password/
+http://thesweetsetup.com/apps/best-password-manager-and-why-you-need-one/
+https://identitysafe.norton.com/password-generator/
+</div>
+<div class="txt"></div>
 
-        <div class="row">
-
-            <div class="col-lg-8 col-sm-12 mx-auto">
-
-                <div class="content">
-                    <h4>Random Password Generator</h4>
-                    <br />
-                    <input type="text" id="display">
-                    <br />
-                    <input type="range" min="0" max="50" name="slider" id="slider">
-                    <br />
-                    <button onclick="generate()">Generate</button>
-                    <button onclick="copyPassword()">Copy to Clipboard</button>
-                    <div id="length"></div>
-                </div>
-
-                <div class="previous_passwords">
-                    <b>Previously Generated Passwords</b>
-                    <br />
-                    <div id="lastNums"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="tx0"><div id="soc"></div></div><div id="adl"></div><div id="hypercomments_widget"></div></div><div class="sbr"></div><div id="ft"><div id="ya"><div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'https://yandex.ru/search/site/','arrow':true,'bg':'#f0c14b','fontsize':16,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по TrafPartner','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':false,'searchid':2201530,'input_fg':'#000099','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':null,'input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self"><input type="hidden" name="searchid" value="2201530"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value="utf-8"/><input type="search" name="text" value=""/><input type="submit" value="Найти"/></form></div></div><div class="w"><a href="/development/" class="ww"><h4>Разработка</h4></a><a href="/css/" class="wa">CSS</a><a href="/html/" class="wa">HTML</a><a href="/javascript/" class="wa">JavaScript</a><a href="/php/" class="wa">PHP</a></div><div class="w"><a href="/coins/" class="ww"><h4>Монеты</h4></a></div><div class="w"><a href="/arbitration/" class="ww"><h4>Арбитраж</h4></a></div><div class="w"><a href="/notepad/" class="ww"><h4>Блокнот</h4></a></div><div class="w"><a href="/site-map" class="wa">Карта сайта</a></div><script>function ui(val){document.getElementById("fc1").value=val;qlt(val)}function iu(val){lgt=document.getElementById("fc1").value;if(lgt<3){lgt=3;}if(lgt>28){lgt=28;}document.getElementById("fc1").value=lgt;document.getElementById("fc0").value=lgt;qlt(lgt)}function qlt(qb){var zn="";if(qb==3){zn="Очень плохой";}if(qb>3 && qb<6){zn="Плохой";}if(qb>=6 && qb<11){zn="Неплохой";}if(qb>=11 && qb<18){zn="Нормальное качество";}if(qb>=18 && qb<28){zn="Сложный";}if(qb==28){zn="Очень сложный";}document.getElementById("qlt").innerHTML=zn;return}var svl=new Array("abcdefghijklmnopqrstuvwxyz","ABCDEFGHIJKLMNOPQRSTUVWXYZ","0123456789",'~!"\'@*#$%^&()_+-={}|/\\<>№,.;:?[]',"абвгдеёжзийклмнопрстуфхцчшщъыьэюя","АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ");function pg(v){var l="",pr="",pr0="",pr1="",pr2="",pr3="",pr4="",pr5="",pr6="",lgt=15;if(v==0){if(document.getElementById("lat").checked){l=svl[0];}if(document.getElementById("cur").checked){l+=svl[4];}}if(v==1){if(document.getElementById('lat').checked){l=svl[1];}if(document.getElementById("cur").checked){l+=svl[5];}}if(v==2){if(document.getElementById("lat").checked){l=svl[0]+svl[1];}if(document.getElementById("cur").checked){l+=svl[4]+svl[5];}}if(v==3){l=svl[2];}if(v==4){if(document.getElementById("lat").checked){l=svl[0]+svl[1]+svl[2];}if(document.getElementById("cur").checked){l+=svl[4]+svl[5];}}if(v==5){l=svl[3];}if(v==6){l=svl[2]+svl[3];if(document.getElementById("lat").checked){l+=svl[0]+svl[1];}if(document.getElementById("cur").checked){l+=svl[4]+svl[5];}}lgt=document.getElementById("fc1").value;if(lgt<3){lgt=3;}if(lgt>28){lgt=28;}for (i=1;i<=lgt;i++){r=Math.floor(Math.random()*l.length);pr=pr+l.slice(r,r+1);if(document.getElementById("pvt").checked){}else{l=l.slice(0,r)+l.slice(r+1)};}pr=pr.replace("&","&amp;");pr=pr.replace(">","&gt;");pr=pr.replace("<","&lt;");document.getElementById("pr"+v).innerHTML=pr;}function re(){for (j=0;j<7;j++){pg(j);}}re();qlt(15);</script><script async src="/min.js"></script><noscript><div><img src="https://mc.yandex.ru/watch/43377709" style="position:absolute; left:-9999px;" alt="" /></div></noscript></div></body></html>
