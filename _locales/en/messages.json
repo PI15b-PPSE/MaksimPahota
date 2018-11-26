@@ -1,0 +1,20 @@
+{
+   "appDesc": {
+      "message": "Simple password generator"
+   },
+   "appName": {
+      "message": "Pagan — password generator"
+   },
+   "length": {
+      "message": "Length"
+   },
+   "passwords": {
+      "message": "Passwords"
+   },
+   "special": {
+      "message": "Special symbols"
+   },
+   "submit": {
+      "message": "Generate"
+   }
+}

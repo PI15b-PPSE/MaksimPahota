@@ -1,0 +1,43 @@
+body {
+    min-width: 220px;
+    padding: 10px;
+    margin: 0;
+    font-family: Tahoma, Arial, Helvetica;
+}
+fieldset { border: none; padding: 0; }
+fieldset .col {
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+}
+fieldset .col:last-child {
+    margin-bottom: 0;
+}
+fieldset .col.col-left {
+    text-align: right;
+    width: 50px;
+    margin-right: 10px;
+}
+fieldset .col.col-full { width: 100%; }
+#result {
+    text-align: center;
+    font-family:monospace;
+    font-size:14px;
+}
+.chk input{
+    position: absolute;
+    right: 0;
+}
+.clear { clear: both; }
+.btn {
+    display: inline-block;
+    background-color: #428bca;
+    border-radius: 4px;
+    width: 100%;
+    border: 1px solid transparent;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+.btn:hover { background-color: #357ebd; }

@@ -1,0 +1,20 @@
+{
+   "appDesc": {
+      "message": "Простой генератор паролей"
+   },
+   "appName": {
+      "message": "Pagan — генератор паролей"
+   },
+   "length": {
+      "message": "Длина"
+   },
+   "passwords": {
+      "message": "Кол-во паролей"
+   },
+   "special": {
+      "message": "Спец. символы"
+   },
+   "submit": {
+      "message": "Создать"
+   }
+}

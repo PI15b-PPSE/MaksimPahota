@@ -1,16 +1,21 @@
 {
-    "manifest_version": 2,
- 
-    "name": "GTmetrix Analyzer Plugin",
-    "description": "This extension will analyze a page using GTmetrix",
-    "version": "1.0",
- 
-    "browser_action": {
-        "default_icon": "icon.png",
-        "default_popup": "popup.html"
-    },
-
-    "permissions": [
-        "activeTab"
-    ]
+   "author": "bbldzr",
+   "browser_action": {
+      "default_icon": "pics/icons/browser_icon.png",
+      "default_popup": "popup.html"
+   },
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "icons": {
+      "128": "pics/icons/icon128.png",
+      "16": "pics/icons/icon16.png",
+      "48": "pics/icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoJkMS1yM+r4BLrhTeQSz3dkfDS+XZqmPBesXvCjtG0A0NKqsJNvQSv7sW82phwnj2nYPW2jR2d+tr1BOYpBdvcZKN1dWZq1qaQpbK3zPtfrgos7x9fO9VWamSqRar5JTop7Srjc33VtHgMzx1dNnEtkqG5+q/7m0hlSic4PTpeEO5fJUUlZG62OjkLP2W3ZUoS2eF7pedp96YDqNbCIz7riDpS769NI1um+jxlFX43jM9jwZvRGggwT92uavgbhbPEpGHut9QatVFjLwiwzh+6SVU3W5n1pzcFaDa+IaDIWYaoWzBFClb1saXA0uMQuPOewG5Tz/zkfqgwtyGU0s0wIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_appName__",
+   "permissions": [ "storage" ],
+   "short_name": "Pagan",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.5"
 }
