@@ -1,3 +1,10 @@
+/**
+* Генерация рандомного пароля
+*
+* Паролю объявляются переменные,
+* Проверка на специальные символы,
+* Цикл по рандомизации символов по введенной длине
+*/ 
 function password (length, special) {
         var iteration = 0;
         var password = "";
@@ -19,14 +26,23 @@ function password (length, special) {
         return password;
     }
 
+/**
+*Вывод сообщения в браузер
+*/
 function getMessage(id) {
     return chrome.i18n.getMessage(id);
 }
-
+/*
+*Функция загрузки окна расширения
+*/
 window.onload = function(){
     init();
 };
 
+/*
+*Вывод сообщений
+*Работа с HTML
+*/
 function init() {
     document.title = getMessage('appName');
     html('lab-passwords', getMessage('passwords'));
@@ -49,6 +65,9 @@ function init() {
 
 }
 
+/*
+* Присваивание сгенерированного пароля в переменную
+*/
 function initSelect(obj, start, end) {
     var str = '';
     for (var i = start; i <= end; i++) {
@@ -57,6 +76,9 @@ function initSelect(obj, start, end) {
     html(obj,str);
 }
 
+/*
+* Передача в HTML
+*/
 function HtmlEncode(s)
 {
     var el = document.createElement("div");
@@ -65,10 +87,16 @@ function HtmlEncode(s)
     return s;
 }
 
+/*
+* Формирование пароля в str
+*/
 function html(id, str) {
     document.getElementById(id).innerHTML = str;
 }
 
+/*
+* Вывод пароля в label
+*/
 function generate() {
     var number = parseInt(document.getElementById('number').value),
         length = parseInt(document.getElementById('length').value),
